@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is a function and any data it needs in order to run. That data can be stored inside the function or outside of the function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,24 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used inside the anonymous function. We can tell because the variable, newRoll, lives inside of this function.
+
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Same: 
+- The console will log Dan rolled a ___. Dan's name stays the same.
+
+Subject to change:
+- The number rolled. It can vary from 1 to 6.
+
+
 c. What is the lexical scope of `newRoll`? 
+
+- Its assignment, Math.floor(Math.random() * 6);
+- The line below it, the fact that the console will log as `${name} rolled a ${newRoll}`
+
 
 ### Task 3 - Stretch Goals
 
