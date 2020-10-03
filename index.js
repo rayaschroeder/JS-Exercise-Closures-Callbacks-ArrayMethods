@@ -100,18 +100,31 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(callback, numInnings){
-  let home = 0;
-  let away = 0;
-  for (let i = 0; i < numInnings; i++) {
-    home += callback();
-    away += callback();
+function finalScore(inningScore, numInnings){
+  //invoke inningScore function to generate random inning score for each team
+  let AwayInningScores = [inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore()];
+  let HomeInningScores = [inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore(), inningScore()];
+
+  //Set initial value to final score at 0. Store in variable so that memory of changes can be stored.
+  let finalAwayScore = 0;
+  let finalHomeScore = 0;
+
+  //Use loop to tally inning scores for each team
+  for (let i = 0; i < numInnings; i++){
+    finalAwayScore += AwayInningScores[i];
+    finalHomeScore += HomeInningScores[i];
   }
+
+  //Log final scores to console inside of an object
   return {
-    Home: home,
-    Away: away,
-  }
+    Home: finalHomeScore,
+    Away: finalAwayScore,
+  };
 }
+
+console.log(finalScore(inning, 9));
+
+
 
 /* Task 4: 
 
@@ -151,7 +164,7 @@ function scoreboard(inningScore, numInnings,) {
     finalHomeScore += HomeInningScores[i];
   }
 
-  //log scores to console in specified format
+  //log entire game scores to console in specified format
   console.log(`
   1st inning: ${AwayInningScores[0]} - ${HomeInningScores[0]}
     2nd inning: ${AwayInningScores[1]} - ${HomeInningScores[1]}
@@ -165,7 +178,7 @@ function scoreboard(inningScore, numInnings,) {
 
     Final Score: ${finalAwayScore} - ${finalHomeScore}`);
 };
-  
-scoreboard(inning,9);
 
+console.log(scoreboard(inning, 9));
+  
 
